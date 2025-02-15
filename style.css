@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+html{
+    overflow: auto;
+}
+body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    color: #000;
+    background-color: #faf1e4;
+}
+
+#screen{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #faf1e4;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+#UIBOX{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#logo{
+    position: absolute;
+    height: 35vh;
+    width: auto;
+    padding-bottom: 20vh;
+    z-index: 5;
+    margin: auto auto;
+    object-fit: cover;
+}
+
+#bgimg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+#bgimg-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;  
+}
+
+#character{
+    position: absolute;
+    width: auto;
+    height: 98vh;
+    bottom: 0px;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#messbox{
+    position: absolute;
+    opacity: 0.8;
+    width: 850px;
+    height: 160px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    background-color: #fff;
+    border: double 10px #000;
+    z-index: 3;
+}
+
+#textbox{
+    width: 800px;
+    height: 140px;
+    margin: -10px auto;
+}
+
+#text{
+    color: #000;
+    font-size: 1.5rem;
+    font-family: serif;
+}
+
+.selectBox{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,.5);
+    display: none;
+}
+
+.select{
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #000;
+    border: solid 5px #fff;
+    border-radius: 20px 50px;
+    box-shadow: inset -2px -2px 4px 4px rgba(0,0,0,.5),2px 2px 4px 4px rgba(0,0,0,.5);
+}
+
+#select1{
+    top: 50px;
+}
+
+#select2{
+    top: 200px;
+}
+
+#select3{
+    top: 350px;
+}
+
+.selectText{
+    margin: 15px auto;
+    text-align: center;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.show{
+    display: block;
+    z-index: 10;
+}
+
+.none{
+    display: none;
+}
+
+/* アニメーション */
+@keyframes fadein{
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeinLate{
+    0%{
+        opacity: 0;
+    }40%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+
+.fadein{
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+}
+
+.fadein-slow{
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+}
+
+.fadein-slow3s{
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+}
+
+.fadein-slow5s{
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+}
+
+.fadein-slow5s-Late{
+    animation-name: fadeinLate;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+}
+
+.fadein-slow5s-Late3s{
+    animation-name: fadeinLate;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+}
+
+@keyframes fadeout{
+    0%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+}
+.fadeout{
+    animation-name: fadeout;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+}
+
+.fadeout1s{
+    animation-name: fadeout;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+@keyframes fadeoutin{
+    0%{
+        opacity: 1;
+    }50%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+.fadeoutin{
+    animation-name: fadeoutin;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+}
