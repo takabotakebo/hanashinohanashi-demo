@@ -22,7 +22,6 @@ window.addEventListener('load',function(){
     var select_text2 = document.getElementById('selectText2');
     var select_text3 = document.getElementById('selectText3');
 
-
     var text = [];
 
     // 最初のタイトル表示
@@ -364,24 +363,24 @@ window.addEventListener('load',function(){
         }
     }
 
-    //文章送り
-    mess_box.addEventListener('click',function(){
-        if(end_flg)return;
-        if(mswin_flg){
-            if(!stop_flg){
-                line_cnt++;
-                if(line_cnt >= text[scene_cnt].length){
-                    line_cnt = 0;
-                }
-            }else if(scene_cnt>=text.length){
-                end_flg = true;
-                return;
-            }
-            split_chars=text[scene_cnt][line_cnt].split('');
-            mess_text.innerHTML='';
-            main();
-        }
-    });
+    // //文章送り
+    // mess_box.addEventListener('click',function(){
+    //     if(end_flg)return;
+    //     if(mswin_flg){
+    //         if(!stop_flg){
+    //             line_cnt++;
+    //             if(line_cnt >= text[scene_cnt].length){
+    //                 line_cnt = 0;
+    //             }
+    //         }else if(scene_cnt>=text.length){
+    //             end_flg = true;
+    //             return;
+    //         }
+    //         split_chars=text[scene_cnt][line_cnt].split('');
+    //         mess_text.innerHTML='';
+    //         main();
+    //     }
+    // });
 
     //最初の画面送り
     screen_box.addEventListener('click',function(){
@@ -443,7 +442,21 @@ window.addEventListener('load',function(){
             firstclick++;
 
         }else{
-            return;
+            if(end_flg)return;
+            if(mswin_flg){
+                if(!stop_flg){
+                    line_cnt++;
+                    if(line_cnt >= text[scene_cnt].length){
+                        line_cnt = 0;
+                    }
+                }else if(scene_cnt>=text.length){
+                    end_flg = true;
+                    return;
+                }
+                split_chars=text[scene_cnt][line_cnt].split('');
+                mess_text.innerHTML='';
+                main();
+            }
         }
     });
 
