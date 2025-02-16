@@ -25,6 +25,11 @@ body{
     justify-content: center;
 }
 
+p {
+    display: block;
+    margin: 0;
+}
+
 #UIBOX{
     position: absolute;
     width: 100vw;
@@ -73,27 +78,35 @@ body{
 #messbox{
     position: absolute;
     opacity: 0.8;
-    width: 850px;
-    height: 160px;
+    width: 93vw;
+    height: 23vh;
     bottom: 40px;
     left: 0px;
     right: 0px;
     margin: auto;
-    background-color: #fff;
-    border: double 10px #000;
+    background-color: #fbf7f0;
+    outline: 4px #2d2d2d;/*outlineで線を追加*/
+    outline-style: double;
+    outline-offset: -20px;/*outline-offsetの値を-15pxにして内側に調整*/
     z-index: 3;
+    /* display: flex;
+    justify-content: center; */
 }
 
 #textbox{
-    width: 800px;
-    height: 140px;
-    margin: -10px auto;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #text{
     color: #000;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-family: serif;
+    text-align: center;
 }
 
 .selectBox{

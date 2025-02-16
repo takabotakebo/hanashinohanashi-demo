@@ -22,6 +22,14 @@ window.addEventListener('load',function(){
     var select_text2 = document.getElementById('selectText2');
     var select_text3 = document.getElementById('selectText3');
 
+    //BGM・効果音など読み込み
+    const SE_nextpage = new Audio('sound/SE_nextpage.mp3');
+    SE_nextpage.preload = 'auto';
+    SE_nextpage.volume = 0.1;
+    SE_nextpage.addEventListener('canplaythrough', () => {
+      console.log('音声ファイルのプリロードが完了しました');
+    });
+
     var text = [];
 
     // 最初のタイトル表示
@@ -363,7 +371,7 @@ window.addEventListener('load',function(){
         }
     }
 
-    // //文章送り
+    // //ダイアログボックスクリック時の文章送り
     // mess_box.addEventListener('click',function(){
     //     if(end_flg)return;
     //     if(mswin_flg){
@@ -455,6 +463,7 @@ window.addEventListener('load',function(){
                 }
                 split_chars=text[scene_cnt][line_cnt].split('');
                 mess_text.innerHTML='';
+                SE_nextpage.play();
                 main();
             }
         }
