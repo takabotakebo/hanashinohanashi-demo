@@ -488,7 +488,9 @@ window.addEventListener('load',function(){
             }, fadeSpeed * baseVol / 100);
 
             // ロゴ非表示
+            $('#UI').addClass('none');
             $('#logo').addClass('none');
+            $('#presstostart').addClass('none');
 
             // 背景オーバーレイ非表示
             $('#bgimg-overlay').addClass('none');

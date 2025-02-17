@@ -94,7 +94,6 @@ p {
 #presstostart{
     position: absolute;
     bottom: 30px;
-    display: block;
     font-size: 1rem;
     font-family: serif;
     text-align: center;
