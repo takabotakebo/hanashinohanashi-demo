@@ -91,6 +91,16 @@ p {
     object-fit: cover;
 }
 
+#presstostart{
+    position: absolute;
+    bottom: 30px;
+    display: block;
+    font-size: 1rem;
+    font-family: serif;
+    text-align: center;
+    z-index: 5;
+}
+
 #bgimg{
     position: absolute;
     width: 100%;
@@ -304,4 +314,20 @@ p {
     animation-fill-mode: forwards;
     animation-duration: 3s;
     animation-timing-function: ease;
+}
+
+@keyframes blinking {
+	0% {
+		opacity: 0;
+	}20%{
+        opacity: 0;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+
+/* 要素にアニメーションを適用 */
+.blink {
+	animation: blinking 3s ease-in-out infinite alternate;
 }
