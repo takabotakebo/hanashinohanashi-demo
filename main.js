@@ -1,6 +1,7 @@
 window.addEventListener('load',function(){
 
     // var screen_box = document.getElementById('screen');
+    var soundcheckOk = document.getElementById('soundcheckOk');
     var screen_box = document.getElementById('screen');
     var mess_box = document.getElementById('textbox');
     var mess_text = document.getElementById('text');
@@ -22,14 +23,41 @@ window.addEventListener('load',function(){
     var select_text2 = document.getElementById('selectText2');
     var select_text3 = document.getElementById('selectText3');
 
-    //BGM・効果音など読み込み
-    const SE_nextpage = new Audio('sound/SE_nextpage.mp3');
-    SE_nextpage.preload = 'auto';
-    SE_nextpage.volume = 0.1;
-    SE_nextpage.addEventListener('canplaythrough', () => {
+    //音量設定
+    var baseVol = 0.1; // audioのベースの音量
+    var fadeSpeed = 1500; // フェードイン・フェードアウトのスピード
+
+    //BGM１の読み込み
+    const BGM_main = new Audio('sound/BGM_main.mp3');
+    BGM_main.preload = 'auto';
+    BGM_main.volume = baseVol;
+    BGM_main.addEventListener('canplaythrough', () => {
       console.log('音声ファイルのプリロードが完了しました');
     });
 
+    //BGM２の読み込み
+    const BGM_scene1 = new Audio('sound/BGM_scene1.mp3');
+    BGM_scene1.preload = 'auto';
+    BGM_scene1.volume = baseVol;
+    BGM_scene1.addEventListener('canplaythrough', () => {
+      console.log('音声ファイルのプリロードが完了しました');
+    });
+
+    //SE読み込み
+     const SE_nextpage = new Audio('sound/SE_nextpage.mp3');
+     SE_nextpage.preload = 'auto';
+     SE_nextpage.volume = baseVol;
+     SE_nextpage.addEventListener('canplaythrough', () => {
+       console.log('音声ファイルのプリロードが完了しました');
+     });
+     const SE_pressstart = new Audio('sound/SE_pressstart.mp3');
+     SE_pressstart.preload = 'auto';
+     SE_pressstart.volume = baseVol;
+     SE_pressstart.addEventListener('canplaythrough', () => {
+       console.log('音声ファイルのプリロードが完了しました');
+     });
+
+    // テキスト要素の配列
     var text = [];
 
     // 最初のタイトル表示
@@ -258,6 +286,7 @@ window.addEventListener('load',function(){
                 switch(tagget_str[0]){
                     case 'stop':
                         stop_flg = true;
+                        //終了時の処理を書く
                         break;
                     case 'selectBox':
                         $('.selectBox').addClass('show');
@@ -390,6 +419,14 @@ window.addEventListener('load',function(){
     //     }
     // });
 
+    //音声再生の確認
+    soundcheckOk.addEventListener('click',function(){
+        $('#screen').removeClass('none');
+        $('#UIBOX').removeClass('none');
+        $('#soundcheck').addClass('none');
+        BGM_main.play();
+    });
+
     //最初の画面送り
     screen_box.addEventListener('click',function(){
         if(firstclick==0){
@@ -423,6 +460,32 @@ window.addEventListener('load',function(){
                 $('#character').removeClass('none');
                 $('#character').addClass('fadein-slow3s');
             }
+
+
+            //BGMのフェードアウト
+            var end_func = setInterval(function() {
+                BGM_main.volume = BGM_main.volume - (baseVol / 100);
+                if(BGM_main.volume <= (baseVol / 100)) {
+                    BGM_main.volume = baseVol;
+                    BGM_main.pause();
+                    clearInterval(end_func);
+                }
+            }, fadeSpeed * baseVol / 100);
+
+            //シーン切り替えSE
+            SE_pressstart.play();
+
+            //BGMのフェードイン
+            BGM_scene1.volume = 0;
+            BGM_scene1.play();
+            BGM_scene1.loop = true
+            var start_func = setInterval(function() {
+                BGM_scene1.volume = BGM_scene1.volume + (baseVol / 100);
+                if(BGM_scene1.volume >= baseVol - (baseVol / 100)) {
+                    BGM_scene1.volume = baseVol;
+                    clearInterval(start_func);
+                }
+            }, fadeSpeed * baseVol / 100);
 
             // ロゴ非表示
             $('#logo').addClass('none');

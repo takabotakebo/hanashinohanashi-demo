@@ -10,6 +10,7 @@ body{
     font-family: serif;
     color: #000;
     background-color: #faf1e4;
+    cursor: url("img/cursor/cursor.cur"), default;
 }
 
 #screen{
@@ -28,6 +29,46 @@ body{
 p {
     display: block;
     margin: 0;
+}
+
+#soundcheck{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align: center;
+    background-color: #EEE7D9;
+    /* background-image: url("img/bg-soundcheck.png");
+    background-size:cover; */
+}
+
+#soundcheckImg{
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+}
+
+#soundcheckTxt{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.soundcheckBtn{
+    width: 250px;
+    height: 80px;
+    margin: 10px auto;
+    color: black;
+    background-color: #fbf7f0;
+    outline: 4px #2d2d2d;/*outlineで線を追加*/
+    outline-style: double;
+    outline-offset: -15px;/*outline-offsetの値を-15pxにして内側に調整*/
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #UIBOX{
@@ -91,6 +132,13 @@ p {
     z-index: 3;
     /* display: flex;
     justify-content: center; */
+}
+#gonexttext{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    bottom: 25px;
+    right: 30px;
 }
 
 #textbox{
@@ -156,7 +204,7 @@ p {
 }
 
 .none{
-    display: none;
+    display: none !important;
 }
 
 /* アニメーション */

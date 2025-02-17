@@ -13,7 +13,7 @@
 
     <body>
 
-        <div id="screen">
+        <div id="screen" class="none">
             <div class="selectBox">
                 <div class="select" id="select1"><p class="selectText" id="selectText1"></p></div>
                 <div class="select" id="select2"><p class="selectText" id="selectText2"></p></div>
@@ -26,11 +26,19 @@
                 <div id="textbox">
                     <p id="text"></p>
                 </div>
+                <img id="gonexttext" src="img/gonexttext.gif" >
             </div>
         </div>
-        <div id="UIBOX">
+        <div id="UIBOX" class="none">
             <img src="img/logo.png" alt="" id="logo" class="fadein-slow5s-Late">
         </div>
+        <div id="soundcheck">
+            <img src="img/icon-speaker.png" alt="" id="soundcheckImg">
+            <p id="soundcheckTxt">このサイトでは音声が再生されます。</p>
+            <div id="soundcheckOk" class="soundcheckBtn">進む</div>
+            <a href="https://hanashinohanashi.com/" id="soundcheckNg" class="soundcheckBtn">戻る</a>
+        </div>
+
     </body>
 
     <script type="text/javascript" src="main.js"></script>
